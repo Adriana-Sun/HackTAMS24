@@ -1,0 +1,204 @@
+body, button, input{
+    font-family: "Pixelify Sans";
+}
+
+.runaway{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0);
+    opacity: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    box-shadow: 3px 3px black, 6px 6px white;
+    transition: opacity 1s ease;
+}
+
+.runaway p{
+    opacity: 0;
+    font-size: 64px;
+    transition: all 0.2s ease;
+}
+
+.runaway a{
+    opacity: 0;
+    font: 20px "Pixelify Sans";
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.2s ease;
+    transition: opacity 2s ease;
+    border-radius: 3px;
+}
+
+.runaway a:hover{
+    background-color: lightgray;
+}
+
+button{
+    background-color: white;
+    border: none;
+    transition: all 0.2s ease-in;
+}
+
+button:hover, button:focus{
+    background-color: rgb(224, 223, 223);
+}
+
+input{
+    border: 5px solid black;
+    border-radius: 2px;
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+}
+
+.hpCont{
+    padding:0px 10px;
+    width: 600px;
+    height:100px;
+    border:5px solid black;
+    background-color:white;
+    border-right-color:white;
+    border-top-color:white;
+    
+}
+
+.bigBox{
+    padding: 0px 0px 0px 75px;
+    width: 750px;
+    height:150px;
+    
+}
+
+.otherBox{
+    width:750px;
+    height:150px;
+    float:right;
+    
+}
+
+.sprite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:730.5px;
+    height:350px;
+}
+
+.actionBox{
+    width:700px;
+    height:260px;
+    border:5px solid black;
+}
+
+.choiceBox{
+    width:700px;
+    height:260px;
+    border:5px solid black;
+}
+
+.moveBox{
+    width:600px;
+    height:300px;
+    border:5px solid black;
+    float:right;
+}
+
+.spriteBox{
+    width:250px;
+    height:300px;
+}
+
+.otherSBox{
+    width:250px;
+    height:300px;
+    float:right;
+}
+
+.sprite h1{
+    margin-left: 20px;
+}
+
+img {
+    max-width:100%;
+    max-height:100%;
+    transition: all 0.2s ease-in;
+}
+
+.screen{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: repeat(12, 70px);
+}
+
+.otherBar{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    
+}
+
+.otherSpace{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 6;
+}
+
+.space{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 10;
+}
+
+.bar{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 9;
+}
+
+.choiceBar{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 9;
+    grid-row-end: 13;
+    background-color:white;
+}
+
+.actionBar{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 9;
+    grid-row-end: 13;
+}
+
+.hpBar{
+    width:550px;
+    height:10px;
+    background-color: green;
+}
+
+.actionGrid{
+    display:grid;
+    grid-template-columns:350px 350px;
+    grid-template-rows: 300px, 300px;
+    height:260px;
+    text-align:center;
+    vertical-align:center;
+}   
+
+.actionButton{
+    height: 62.5px;
+    width:700px;
+    font-size:24px;
+}

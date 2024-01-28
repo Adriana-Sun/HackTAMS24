@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fight Scene</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="fight.css">
+        
+    </head>
+    <body>
+        <div class="runaway">
+            <p>Text Here</p>
+            <a href="index.html">Return to home</a>
+        </div>
+        
+        <div class="screen">
+            <div class="otherBar">
+                <h1>Other Name</h1>
+                <div class="hpCont">
+                    <p>LV</p>
+                    <p>HP</p>
+                    <div class="hpBar" id="otherHpBar"></div>
+                </div>
+            </div>
+            <div class="otherSpace">
+                <div class="sprite">
+                    <img src="peach.png"> 
+                    <h1 id="otherconfirm"></h1>
+                </div>
+            </div>
+            <div class="space"> 
+                <div class="sprite">
+                    <img src="mario.png" id="user">
+                    <h1 id="confirm"></h1>
+                </div>
+            </div>
+            <input type="text" id="inputbox" hidden="true">
+            <div class="bar">
+                <h1>User Name</h1>
+                <div class="hpCont">
+                    <p>LV</p>
+                    <p>HP</p>
+                    <div class="hpBar" id="userHpBar"></div>
+                </div>
+            </div>
+            <div class="choiceBar">
+                <div class="choiceBox">
+                    <button class="actionButton" id="choice1"></button>
+                    <button class="actionButton" id="choice2"></button>
+                    <button class="actionButton" id="choice3"></button>
+                    <button class="actionButton" id="choice4"></button>
+                </div>
+            </div>
+            <div class="actionBar">
+                <div class="actionBox">
+                    <div class="actionGrid">
+                        <button id="action" onclick="clickAction()">
+                            <h1>ACTION</h1>
+                        </button>
+                        <button id="items" onclick="clickItems()">
+                            <h1>ITEMS</h1>
+                        </button>
+                        <button id="info" onclick="clickInfo()">
+                            <h1>INFO</h1>
+                        </button>
+                        <button id="runaway" onclick="clickRun()">
+                            <h1>RUN AWAY</h1>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="fight.js"></script>
+    </body>
+</html>
