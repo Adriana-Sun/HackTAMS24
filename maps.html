@@ -25,6 +25,13 @@
         <script>
             var map = L.map('map').setView([33.214840, -97.133064], 13);
 
+            var gym = L.icon({
+                iconUrl:'https://th.bing.com/th/id/R.6e89af624c7d78cf03977609bfaad072?rik=YQyiAn8PPIRG9g&riu=http%3a%2f%2fih0.redbubble.net%2fimage.50411477.7401%2fsticker%2c375x360.u3.png&ehk=hN7n9f%2bRKWZFUGynVt1PzpiSvPyKQX5Jtj9X5n7nDDc%3d&risl=&pid=ImgRaw&r=0'
+                ,iconSize: [70,70],
+                iconAnchor: [16,16],
+                popupAnchor: [0, -16]
+            });
+
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: 'Â© OpenStreetMap contributors'
@@ -32,7 +39,7 @@
             map.locate({setView: true, maxZoom: 18});
             let text = "Pokemon Gym";
             // Add a definite marker at a specific coordinate
-            var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
+            var definiteMarker = L.marker([33.21008, -97.14902], {icon:gym}).addTo(map)
                 .bindPopup(text).openPopup();
             
             // Watch the user's position and update the map accordingly
@@ -71,8 +78,8 @@
                     .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
                 L.circle(e.latlng, radius).addTo(map);
-                if(radius < 5000) {
-                    let result = text.link("index.html");
+                if(radius < 400) {
+                    let result = text.link("card.html");
                     var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
                         .bindPopup(result).openPopup();
                 } else{

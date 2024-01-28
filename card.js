@@ -92,7 +92,7 @@ for(var i = 0; i < jsonArray.length; i++){
             sessionStorage.setItem("name", e.currentTarget.getAttribute('data-name'));
             sessionStorage.setItem("age", e.currentTarget.getAttribute('data-age'));
             sessionStorage.setItem("image", e.currentTarget.getAttribute('data-image'));
-            window.location.href = "index.html";
+            window.location.href = "fight.html";
         });
     docFrag.appendChild(cardBorder);
 }
