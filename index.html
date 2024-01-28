@@ -6,6 +6,7 @@
 <html lang="en-US">
     <head>
         <title>Pokémon Tinder</title>
+        <link rel="icon" type="image/png" href="icon.PNG">   <!-- Setting favicon -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
 
@@ -26,7 +27,7 @@
             }
 
             label{
-                text-shadow: 2px 2px white, 3px 3px black;
+                text-shadow: 1px 1px black, 2px 2px white, 3px 3px black;
             }
 
             input, textarea, select{
@@ -98,7 +99,11 @@
         </style>
     </head>
     <body>
-        <h1 style="position: relative; z-index: 1;">POKÉMON TINDER</h1>
+        <h1 style="position: relative; z-index: 1; display: flex; justify-content: center; align-items: center;">
+            <img src="icon.png" style="width: 50px;">
+            POKÉMON TINDER
+            <img src="icon.png" style="width: 50px;">
+        </h1>
         
         <!-- For now, I don't want to deal with form submissions-->
         <form style="position: relative; z-index: 1;" onsubmit="return false;"> 
