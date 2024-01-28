@@ -1,22 +1,22 @@
 
 var jsonArray = [{"image":"test.png","name":"Anirudh Mazumder","age":"16",
     "likes":["hunter hoinkes", "hunter", "hoinkes"],"dislikes":["everything", "except hunter", "not hunter"],
-    "quote":"\"Hunter got that GYATT\""},
+    "quote":"\"Hunter got dat GYATT\""},
     {"image":"saanvi.jpg", "name":"Saanvi V Bomma","age":"16",
     "likes":["music", "boba", "puzzles"],"dislikes":["beetles", "blood", "jealous people"],
     "quote":"\"Happy halloween\""},
-    {"image":"krish.jpg", "name":"Krish","age":"17",
+    {"image":"krish.jpg", "name":"Krish Kohir","age":"17",
     "likes":["levers", "untying shoelaces", "throwing up"],"dislikes":["carrots", "licking batteries", "not pissing"],
     "quote":"\"This is why your parents keep fighting\""},
     {"image":"kevin.jpg", "name":"Gengwen Li","age":"16",
     "likes":["your grandma", "your mother", "your sister"],"dislikes":["cats", "more cats", "cat girls"],
     "quote":"\"Can I think about it?\""},
-    {"image":"Aryan.jpg", "name":"Aryan Raj","age":"16",
+    {"image":"Aryan.jpg", "name":"Isabella Xu","age":"16",
     "likes":["eating", "sleeping", "exercising"],"dislikes":["some people", "some things", "things failing"],
     "quote":"\"To infinity and beyond\""},
-    {"image":"neel.jpg", "name":"Neelesh Chevuri","age":"17",
-    "likes":["monster drinks", "cracks", "crystals"],"dislikes":["shadow wizards", "hitler", "android"],
-    "quote":"\"I can't speak English\""}
+    {"image":"neel.jpg", "name":"Shriya Dontula","age":"17",
+    "likes":["ice cream", "books", "bullying"],"dislikes":["Seeing people happy", "People wronging me", "boys"],
+    "quote":"\"I want to spread joy and positivity\""}
 ];
 
 const docFrag = new DocumentFragment();
@@ -24,6 +24,9 @@ const body = document.querySelector('body');
 for(var i = 0; i < jsonArray.length; i++){
     console.log(jsonArray[i].name);
     var cardBorder = document.createElement("div");
+    cardBorder.setAttribute("data-name", jsonArray[i].name);
+    cardBorder.setAttribute("data-age", jsonArray[i].age);
+    cardBorder.setAttribute("data-image", jsonArray[i].image);
     cardBorder.classList.add("cardborder");
         var titleGrid = document.createElement('div');
         titleGrid.classList.add("TitleGrid");
@@ -76,23 +79,14 @@ for(var i = 0; i < jsonArray.length; i++){
         quote.innerText=jsonArray[i].quote;
         quoteCard.appendChild(quote);
         cardBorder.appendChild(quoteCard);
+        cardBorder.addEventListener("click", (e) =>{
+            //store in session storage
+            sessionStorage.setItem("name", e.currentTarget.getAttribute('data-name'));
+            sessionStorage.setItem("age", e.currentTarget.getAttribute('data-age'));
+            sessionStorage.setItem("image", e.currentTarget.getAttribute('data-image'));
+            window.location.href = "index.html";
+        });
     docFrag.appendChild(cardBorder);
 }
 body.appendChild(docFrag);
 
-/* <div class="cardborder">
-    <div class="TitleGrid">
-        <h1>Name</h1>
-        <h2>Age: </h2>
-    </div>
-    <div class="imgbox"><img src="test.png" alt="Anirudh in a jacket"></div>
-    <div class = "InterestGrid">
-        <p1>Likes:</p1>
-        <p1a>Dislikes: </p1a>
-    </div>
-    <div class = "InterestGrid">
-        <ul2></ul2>
-        <ula></ula>
-    </div>
-    <p3>Quote: "Hunter got dat GYATT"</p3>
-</div> */
