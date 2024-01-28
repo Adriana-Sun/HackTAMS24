@@ -1,1 +1,98 @@
-<!-- isabella -->
+<!--isabella-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        /* sets height/width of map to 100% of the viewport height */
+        html, body, #map{  
+            
+            height: 100%;
+            width: 100vw;
+        }
+    </style>
+    <meta charset="UTF-8"> 
+    <!-- ensures that the content width matches device width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links leaflet CSS file hosted (with URL) to style the map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+    <!-- Additional config to control max scale -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Your Leaflet Map</title>
+</head>
+
+
+<body>
+    <!-- creates a division wiht the ID "map" that serves as container for leaflet map -->
+    <div id="map" ></div>
+
+    <!-- include leaflet js library -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script> /* opens script block for js code */
+
+        // initialize map instance with "map"
+        //set initial view to specified coords with zoom level of 13
+        var map = L.map('map').setView([33.214840, -97.133064], 13);
+        // add tile layer to map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // initiates location retrieval process for user device
+        // auto sets view and limits max zoom
+        map.locate({setView: true, maxZoom: 18});
+
+        // Add a definite marker at a specific coordinate
+        var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
+            .bindPopup("Pokemon Gym").openPopup();
+        
+        // configure option to watch user position
+        //enable high accuracy
+        var watchOptions = {
+            enableHighAccuracy: true,
+            maximumAge: 0
+        };
+        
+        var userMarker;
+        // initiates watching user's position, updating map when user moves
+        var watchId = navigator.geolocation.watchPosition(
+
+            // defines callback function exectuted when user location updated
+            function onLocationUpdate(position) {
+                // gets lat and long from updated location
+                var newLatLng = [position.coords.latitude, position.coords.longitude];
+
+                // Remove the previous user marker if it exists
+                if (userMarker) {
+                    map.removeLayer(userMarker);
+                }
+
+                // creates new marker at updated position
+                userMarker = L.marker(newLatLng).addTo(map)
+                    .bindPopup("You are at: " + newLatLng[0].toFixed(6) + ", " + newLatLng[1].toFixed(6)).openPopup();
+
+                // Add a circle to represent the accuracy radius
+                L.circle(newLatLng, position.coords.accuracy).addTo(map);
+            },
+
+            // defines callback fnct when error occurs during location retrieval (alert warning)
+            function onError(error) {
+                alert('Error getting location: ' + error.message);
+            },
+            watchOptions
+        );
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);
+    </script>
+</body>
+</html>
