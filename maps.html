@@ -41,7 +41,12 @@
             // Add a definite marker at a specific coordinate
             var definiteMarker = L.marker([33.21008, -97.14902], {icon:gym}).addTo(map)
                 .bindPopup(text).openPopup();
-            
+                var gymCircle = L.circle([33.21008, -97.14902], {
+                color: 'blue',
+                fillColor: '#3388ff',
+                fillOpacity: 0.3,
+                radius: 300  // Set the radius in meters
+            }).addTo(map);
             // Watch the user's position and update the map accordingly
             var watchOptions = {
                 enableHighAccuracy: true,
@@ -78,7 +83,7 @@
                     .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
                 L.circle(e.latlng, radius).addTo(map);
-                if(radius < 400) {
+                if(radius < 300) {
                     let result = text.link("index.html");
                     var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
                         .bindPopup(result).openPopup();
