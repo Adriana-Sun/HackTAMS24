@@ -1,0 +1,115 @@
+shriya dontula
+melonlord0946
+
+Isabella — Today at 9:02 PM
+jhg
+Isabella — Today at 9:15 PM
+jh\
+```
+<!--isabella-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+Expand
+message.txt
+3 KB
+﻿
+Isabella
+iz000
+```
+<!--isabella-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body{
+                padding: 0;
+                margin: 0;
+            }
+            html, body, #map{
+                height: 100%;
+                width: 100vw;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Your Leaflet Map</title>
+    </head>
+    <body>
+        <div id="map" ></div>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([33.214840, -97.133064], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: 'Â© OpenStreetMap contributors'
+            }).addTo(map);
+            map.locate({setView: true, maxZoom: 18});
+            let text = "Pokemon Gym";
+            // Add a definite marker at a specific coordinate
+            var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
+                .bindPopup(text).openPopup();
+            
+            // Watch the user's position and update the map accordingly
+            var watchOptions = {
+                enableHighAccuracy: true,
+                maximumAge: 0
+            };
+            
+        
+            var watchId = navigator.geolocation.watchPosition(
+                function onLocationUpdate(position) {
+                    var newLatLng = [position.coords.latitude, position.coords.longitude];
+
+                    // Remove the previous user marker if it exists
+                    if (userMarker) {
+                        map.removeLayer(userMarker);
+                    }
+
+                    // Update the user marker
+                    userMarker = L.marker(newLatLng).addTo(map)
+                        .bindPopup("You are at: " + newLatLng[0].toFixed(6) + ", " + newLatLng[1].toFixed(6)).openPopup();
+
+                    // Add a circle to represent the accuracy radius
+                    L.circle(definiteMarker, position.coords.accuracy).addTo(map);
+                },
+                function onError(error) {
+                    alert('Error getting location: ' + error.message);
+                },
+                watchOptions
+            );
+
+            function onLocationFound(e) {
+                var radius = e.accuracy;
+
+                L.marker(e.latlng).addTo(map)
+                    .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+                L.circle(e.latlng, radius).addTo(map);
+                if(radius < 5000) {
+                    let result = text.link("index.html");
+                    var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
+                        .bindPopup(result).openPopup();
+                } else{
+                    var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
+                        .bindPopup(text).openPopup();
+                }
+
+            }
+            
+
+            map.on('locationfound', onLocationFound);
+
+            function onLocationError(e) {
+                alert(e.message);
+            }
+
+            map.on('locationerror', onLocationError);
+        </script>
+    </body>
+</html>
