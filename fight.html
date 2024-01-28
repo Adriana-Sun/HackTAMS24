@@ -2,7 +2,11 @@
 <html>
     <head>
         <title>Fight Scene</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="fight.css">
+        
     </head>
     <body>
         
@@ -22,9 +26,11 @@
             </div>
             <div class="space">
                 <div class="sprite">
-                    <img src="mario.png">
+                    <img src="mario.png" id="user">
+                    <h1 id="confirm"></h1>
                 </div>
             </div>
+            <input type="text" id="inputbox" hidden="true">
             <div class="bar">
                 <h1>User Name</h1>
                 <div class="hpCont">
@@ -35,10 +41,10 @@
             </div>
             <div class="choiceBar">
                 <div class="choiceBox">
-                    <h1 id="choice1"></h1>
-                    <h1 id="choice2"></h1>
-                    <h1 id="choice3"></h1>
-                    <h1 id="choice4"></h1>
+                    <button class="actionButton" id="choice1"></button>
+                    <button class="actionButton" id="choice2"></button>
+                    <button class="actionButton" id="choice3"></button>
+                    <button class="actionButton" id="choice4"></button>
                 </div>
             </div>
             <div class="actionBar">
