@@ -1,0 +1,68 @@
+<!-- This is for victory screen -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Pokémon Tinder</title>
+        <link rel="icon" type="image/png" href="icon.PNG">   <!-- Setting favicon -->
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Importing fonts from Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet"> 
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font: 18px "Pixelify Sans";
+            text-align: center;
+            min-height: 100vh;
+            background-color: rgb(116, 211, 116);
+            background-image: url("tileGrass.png");
+            background-size: 30px;
+        }
+
+        div{
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            min-height: 70vh;
+            background-color: white;
+            border: 5px solid black;
+            border-radius: 5px;
+            box-shadow: 6px 6px white, 10px 10px black;
+        }
+        h1{
+            width: 80%;
+        }
+        a{
+            color: black;
+            border: 5px solid black;
+            padding: 5px 5px;
+            border-radius: 5px;
+            box-shadow: 3px 3px white, 6px 6px black;
+            transition: all 0.3s ease-in;
+            text-decoration: none;
+        }
+        a:hover, a:focus{
+            cursor: pointer;
+            background-color: red;
+            box-shadow: 3px 3px black;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <h1>Congrats! After a long battle, you've won the <span><img src="icon.PNG" style="width: 40px; margin-right: 5px;"></span><span style="color: red;">heart</span> of your match!</h1>
+            <p>What are you waiting for? Go find the love (or fling) of your life.</p>
+            <a href="index.html">Start Messaging</a>
+        </div>
+    </body>
+</html>

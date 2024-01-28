@@ -1,98 +1,145 @@
-<!--isabella-->
+<!-- This is the login page -->
+<!-- Adriana -->
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body{
-            padding: 0;
-            margin: 0;
-        }
-        /* sets height/width of map to 100% of the viewport height */
-        html, body, #map{  
-            
-            height: 100%;
-            width: 100vw;
-        }
-    </style>
-    <meta charset="UTF-8"> 
-    <!-- ensures that the content width matches device width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- links leaflet CSS file hosted (with URL) to style the map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
-    <!-- Additional config to control max scale -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Your Leaflet Map</title>
-</head>
 
+<html lang="en-US">
+    <head>
+        <title>Pokémon Tinder</title>
+        <link rel="icon" type="image/png" href="icon.PNG">   <!-- Setting favicon -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
 
-<body>
-    <!-- creates a division wiht the ID "map" that serves as container for leaflet map -->
-    <div id="map" ></div>
+        <!-- Importing fonts from Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
 
-    <!-- include leaflet js library -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <style>
+            body{
+                text-align: center;
+                font: 24px "Pixelify Sans";
+            }
 
-    <script> /* opens script block for js code */
+            h1{
+                font-size: 60px;
+                text-shadow: 3px 3px white, 5px 5px black;
+            }
 
-        // initialize map instance with "map"
-        //set initial view to specified coords with zoom level of 13
-        var map = L.map('map').setView([33.214840, -97.133064], 13);
-        // add tile layer to map
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
+            label{
+                text-shadow: 1px 1px black, 2px 2px white, 3px 3px black;
+            }
 
-        // initiates location retrieval process for user device 
-        // auto sets view and limits max zoom
-        map.locate({setView: true, maxZoom: 18});
+            input, textarea, select{
+                width: 300px;
+                margin-top: 15px;
+                margin-bottom: 20px;
+                border: 5px solid black;
+                transition: all 0.2s ease-in;
+                font-family: "Pixelify Sans";
+            }
 
-        // Add a definite marker at a specific coordinate
-        var definiteMarker = L.marker([33.21008, -97.14902]).addTo(map)
-            .bindPopup("Pokemon Gym").openPopup();
+            input:focus, textarea:focus, select:focus{
+                outline: none;
+                border-color: gray;
+            }
+
+            input[type=submit]{
+                color: white;
+                text-shadow: 1px 1px white;
+                font-size: 18px;
+                background-color: black;
+            }
+            input[type=submit]:hover{
+                cursor: pointer;
+                background-color: gray;
+            }
+
+            .background{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                min-height: 100%;
+                z-index: 0;
+                display: grid;
+                grid-template-columns: 1fr 25px 2fr 25px 1fr;
+                background-color: rgb(116, 211, 116);
+                background-image: url("tileGrass.png");
+                background-size: 30px;
+            }
+
+            .tile{
+                background:fixed;
+                background-image: url("tilePath.png");
+                background-position: 50%;
+                background-size: 50px;
+            }
+
+            .tileLeft{
+                background:fixed;
+                background-image: url("tileGrassPathLeft.png");
+                background-position: 50%;
+                background-size: 50px;
+            }
+
+            .tileRight{
+                background:fixed;
+                background-image: url("tileGrassPathRight.png");
+                background-size: 50px;
+                background-position: 50%;
+            }
+
+            div img{
+                width: 100%;
+                height: auto;
+                max-width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="position: relative; z-index: 1; display: flex; justify-content: center; align-items: center;">
+            <img src="icon.png" style="width: 50px;">
+            POKÉMON TINDER
+            <img src="icon.png" style="width: 50px;">
+        </h1>
         
-        // configure option to watch user position
-        //enable high accuracy
-        var watchOptions = {
-            enableHighAccuracy: true,
-            maximumAge: 0
-        };
-        
-        var userMarker;
-        // initiates watching user's position, updating map when user moves
-        var watchId = navigator.geolocation.watchPosition(
+        <!-- For now, I don't want to deal with form submissions-->
+        <form style="position: relative; z-index: 1;" onsubmit="return false;"> 
+            <label for="name">Input First and Last Name</label> <br>
+            <input type="text" id="name" placeholder="Full Name" required>
 
-            // defines callback function exectuted when user location updated
-            function onLocationUpdate(position) {
-                // gets lat and long from updated location
-                var newLatLng = [position.coords.latitude, position.coords.longitude];
+            <br> <label for="phone">Input your phone</label> <br>
+            <input type="number" id="phone" placeholder="Phone Number" required>
 
-                // Remove the previous user marker if it exists
-                if (userMarker) {
-                    map.removeLayer(userMarker);
-                }
+            <br> <label for="description">Description</label> <br>
+            <textarea id="description" placeholder="Ex: A 32 year-old man looking for a fun, short relationship!" required></textarea>
 
-                // creates new marker at updated position
-                userMarker = L.marker(newLatLng).addTo(map)
-                    .bindPopup("You are at: " + newLatLng[0].toFixed(6) + ", " + newLatLng[1].toFixed(6)).openPopup();
+            <br><label for="datePref">Dating preference?</label><br>
+            <select name="datePref" id="datePref" required>
+                <option value="select">- Select an option -</option> 
+                <option value="dating" data-type="text">Dating</option>
+                <option value="marriage" data-type="text">Marriage</option>
+                <option value="fling" data-type="number">Fling</option>
+            </select>
 
-                // Add a circle to represent the accuracy radius
-                L.circle(newLatLng, position.coords.accuracy).addTo(map);
-            },
+            <br> <label for="likes">Likes (up to 3)</label> <br>
+            <input type="text" id="likes" placeholder="Ex: Tall guys (over 5'10)" required>
 
-            // defines callback fnct when error occurs during location retrieval (alert warning)
-            function onError(error) {
-                alert('Error getting location: ' + error.message);
-            },
-            watchOptions
-        );
+            <br> <label for="dislikes">Dislikes (up to 3)</label> <br>
+            <input type="text" id="dislikes" placeholder="Ex: Virgos" required>
 
-        function onLocationError(e) {
-            alert(e.message);
-        }
+            <br><input type="submit">
+        </form>
 
-        map.on('locationerror', onLocationError);
-    </script>
-</body>
+        <div class="background">
+            <div>
+                <img src="houseRed.png" style="margin-top: 150px;">
+            </div>
+            <div class="tileLeft"></div>
+            <div class="tile"></div>
+            <div class="tileRight"></div>
+            <div></div>
+        </div>
+    </body>
 </html>
