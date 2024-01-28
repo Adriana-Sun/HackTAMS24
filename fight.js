@@ -48,7 +48,17 @@ function clickInfo(){
 
 function clickRun(){
     //return to card page
-    alert("You Escaped Successfully!");
+    runaway = document.querySelector(".runaway");
+    runaway.style.opacity = 1;
+    runaway.style.display = "flex";
+    runaway.querySelector("p").innerHTML = "You ran away...";
+    setTimeout(function(){
+        runaway.querySelector("p").style.opacity = 1;
+    }, 500);
+
+    setTimeout(function(){
+        runaway.querySelector("a").style.opacity = 1;
+    }, 1500);
 }
 
 function pickupLine(){
@@ -76,6 +86,16 @@ function getDamage(){
     } else {
         //They ran away
         document.getElementById("otherconfirm").innerHTML="THEY RAN AWAY";
+        runaway = document.querySelector(".runaway");
+        runaway.style.opacity = 1;
+        runaway.style.display = "flex";
+        runaway.querySelector("p").innerHTML = "Your match ran away...";
+        runaway.querySelector("p").style.opacity = 1;
+
+        setTimeout(function(){
+            runaway.querySelector("a").style.opacity = 1;
+        }, 1500);
+
         return;
     }
 
