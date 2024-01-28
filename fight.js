@@ -1,9 +1,18 @@
 const otherSpace = document.querySelector(".otherSpace");
 const otherSprite = otherSpace.querySelector("img");
+const otherBar = document.querySelector(".otherBar");
+const otherName = otherBar.querySelector("h1");
+
 const userSpace = document.querySelector(".space");
 const userSprite = userSpace.querySelector("img");
+const userBar = document.querySelector(".bar");
+const userName = userBar.querySelector("h1");
 
-// otherSprite.src = URL.createObjectURL(sessionStorage.getItem("image"));
+otherSprite.src = sessionStorage.getItem("image");
+otherName.innerText = sessionStorage.getItem("name");
+
+// userSprite.src = sessionStorage.getItem("userImage");
+userName.innerText = sessionStorage.getItem("userName");
 
 var responses = ["It was super effective!", "It was not very effective...", "It was neutral."];
 
