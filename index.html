@@ -22,14 +22,14 @@
 
             h1{
                 font-size: 60px;
-                text-shadow: 3px 3px rgb(255, 229, 98);
+                text-shadow: 3px 3px white, 5px 5px black;
             }
 
             label{
-                text-shadow: 1px 1px black, 2px 2px rgb(78, 255, 72);
+                text-shadow: 2px 2px white, 3px 3px black;
             }
 
-            input, textarea{
+            input, textarea, select{
                 width: 300px;
                 margin-top: 15px;
                 margin-bottom: 20px;
@@ -38,9 +38,20 @@
                 font-family: "Pixelify Sans";
             }
 
-            input:focus, textarea:focus{
+            input:focus, textarea:focus, select:focus{
                 outline: none;
                 border-color: gray;
+            }
+
+            input[type=submit]{
+                color: white;
+                text-shadow: 1px 1px white;
+                font-size: 18px;
+                background-color: black;
+            }
+            input[type=submit]:hover{
+                cursor: pointer;
+                background-color: gray;
             }
 
             .background{
@@ -79,15 +90,30 @@
     </head>
     <body>
         <h1 style="position: relative; z-index: 1;">POKÉMON TINDER</h1>
-        <form style="position: relative; z-index: 1;">
+        
+        <!-- For now, I don't want to deal with form submissions-->
+        <form style="position: relative; z-index: 1;" onsubmit="return false;"> 
             <label for="name">Input First and Last Name</label> <br>
-            <input type="text" id="name" placeholder="Full Name">
+            <input type="text" id="name" placeholder="Full Name" required>
 
             <br> <label for="phone">Input your phone</label> <br>
-            <input type="number" id="phone" placeholder="Phone Number">
+            <input type="number" id="phone" placeholder="Phone Number" required>
 
             <br> <label for="description">Description</label> <br>
-            <textarea id="description" placeholder="Ex: A 32 year-old man looking for a fun, short relationship!"></textarea>
+            <textarea id="description" placeholder="Ex: A 32 year-old man looking for a fun, short relationship!" required></textarea>
+
+            <br><label for="datePref">Dating preference?</label><br>
+            <select name="datePref" id="datePref" required>
+                <option value="select">- Select an option -</option> 
+                <option value="dating" data-type="text">Dating</option>
+                <option value="marriage" data-type="text">Marriage</option>
+                <option value="fling" data-type="number">Fling</option>
+            </select>
+
+            <br> <label for="phone">Input your phone</label> <br>
+            <input type="number" id="phone" placeholder="Phone Number" required>
+
+            <br><input type="submit">
         </form>
 
         <div class="background">
