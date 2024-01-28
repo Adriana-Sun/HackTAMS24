@@ -65,6 +65,10 @@ body, button, input{
     float:right;
 }
 
+.sprite h1{
+    margin-left: 20px;
+}
+
 img {
     max-width:100%;
     max-height:100%;
