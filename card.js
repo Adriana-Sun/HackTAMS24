@@ -11,10 +11,10 @@ var jsonArray = [{"image":"test.png","name":"Anirudh Mazumder","age":"16",
     {"image":"kevin.jpg", "name":"Gengwen Li","age":"16",
     "likes":["your grandma", "your mother", "your sister"],"dislikes":["cats", "more cats", "cat girls"],
     "quote":"\"Can I think about it?\""},
-    {"image":"Aryan.jpg", "name":"Isabella Xu","age":"16",
+    {"image":"Isabella.jpg", "name":"Isabella Xu","age":"16",
     "likes":["eating", "sleeping", "exercising"],"dislikes":["some people", "some things", "things failing"],
     "quote":"\"To infinity and beyond\""},
-    {"image":"neel.jpg", "name":"Shriya Dontula","age":"17",
+    {"image":"Shriya.jpg", "name":"Shriya Dontula","age":"17",
     "likes":["ice cream", "books", "bullying"],"dislikes":["Seeing people happy", "People wronging me", "boys"],
     "quote":"\"I want to spread joy and positivity\""}
 ];
@@ -72,6 +72,14 @@ for(var i = 0; i < jsonArray.length; i++){
             actualInterestGrid.appendChild(likesList);
             actualInterestGrid.appendChild(dislikesList);
         cardBorder.appendChild(actualInterestGrid);
+
+        var logo = document.createElement('img');
+        logo.src = "icon.png";
+        logo.style.width = "50px";
+        logo.style.height = "50px";
+        logo.style.marginTop = "20px";
+        logo.style.marginLeft = "20px";
+        cardBorder.appendChild(logo);
 
         var quoteCard = document.createElement('div');
         quoteCard.classList.add("p3");
