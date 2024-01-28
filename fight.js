@@ -1,4 +1,6 @@
+responses = ["It was super effective!", "It was not very effective.", ""];
 
+damage = [200, 50, 100];
 
 function clickAction(){
     document.getElementById("confirm").innerHTML="";
@@ -45,18 +47,35 @@ function pickupLine(){
     document.getElementById("confirm").innerHTML="";
     document.getElementById("inputbox").hidden=false;
     document.getElementById("inputbox").placeholder="Enter your pickup line!";
+    document.getElementById("inputbox").addEventListener("keypress",function(event){getResponse(event)});
+}
+
+function getResponse(event){
+    if(event.key == "Enter"){
+        document.getElementById("confirm").innerHTML="";
+        document.getElementById("inputbox").value="";
+        document.getElementById("inputbox").hidden=true;
+        var i = Math.floor(Math.random()*3);
+        document.getElementById("otherconfirm").innerHTML=responses[i];
+        var p = document.getElementById("otherHpBar").clientWidth;
+        //console.log(p);
+        p = p-damage[i];
+        document.getElementById("otherHpBar").style.width = p+"px";
+    }
 }
 
 function message(){
     document.getElementById("confirm").innerHTML="";
     document.getElementById("inputbox").hidden=false;
     document.getElementById("inputbox").placeholder="Enter your message!";
+    document.getElementById("inputbox").addEventListener("keypress",function(event){getResponse(event)});
 }
 
 function iceBreakers(){
     document.getElementById("confirm").innerHTML="";
     document.getElementById("inputbox").hidden=false;
     document.getElementById("inputbox").placeholder="Enter your icebreaker!";
+    document.getElementById("inputbox").addEventListener("keypress",function(event){getResponse(event)});
 }
 
 function beg(){
