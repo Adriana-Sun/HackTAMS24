@@ -30,7 +30,7 @@
                 text-shadow: 1px 1px black, 2px 2px white, 3px 3px black;
             }
 
-            input, textarea, select{
+            input, textarea, select, a{
                 width: 300px;
                 margin-top: 15px;
                 margin-bottom: 20px;
@@ -39,18 +39,18 @@
                 font-family: "Pixelify Sans";
             }
 
-            input:focus, textarea:focus, select:focus{
+            input:focus, textarea:focus, select:focus, a:focus{
                 outline: none;
                 border-color: gray;
             }
 
-            input[type=submit]{
+            a{
                 color: white;
                 text-shadow: 1px 1px white;
                 font-size: 18px;
                 background-color: black;
             }
-            input[type=submit]:hover{
+            a:hover{
                 cursor: pointer;
                 background-color: gray;
             }
@@ -132,7 +132,7 @@
             <br> <label for="userImage">Upload a picture (.png and .jpeg only)</label> <br>
             <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" required>
 
-            <br><input type="submit" href="map.html">
+            <br><a class="submit">Submit</a>
         </form>
 
         <div class="background">
