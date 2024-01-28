@@ -57,9 +57,122 @@ function clickItems(){
     document.getElementById("choice4").onclick=function(){bulbasaur()}; 
 }
 
+
+var jsonArray = [{"image":"test.png","name":"Anirudh Mazumder","age":"16",
+    "likes":["hunter hoinkes", "hunter", "hoinkes"],"dislikes":["everything", "except hunter", "not hunter"],
+    "quote":"\"Hunter got dat GYATT\""},
+    {"image":"saanvi.jpg", "name":"Saanvi V Bomma","age":"16",
+    "likes":["music", "boba", "puzzles"],"dislikes":["beetles", "blood", "jealous people"],
+    "quote":"\"Happy halloween\""},
+    {"image":"krish.jpg", "name":"Krish Kohir","age":"17",
+    "likes":["levers", "untying shoelaces", "throwing up"],"dislikes":["carrots", "licking batteries", "not pissing"],
+    "quote":"\"This is why your parents keep fighting\""},
+    {"image":"kevin.jpg", "name":"Gengwen Li","age":"16",
+    "likes":["your grandma", "your mother", "your sister"],"dislikes":["cats", "more cats", "cat girls"],
+    "quote":"\"Can I think about it?\""},
+    {"image":"Isabella.jpg", "name":"Isabella Xu","age":"16",
+    "likes":["eating", "sleeping", "exercising"],"dislikes":["some people", "some things", "things failing"],
+    "quote":"\"To infinity and beyond\""},
+    {"image":"Shriya.jpg", "name":"Shriya Dontula","age":"17",
+    "likes":["ice cream", "books", "bullying"],"dislikes":["Seeing people happy", "People wronging me", "boys"],
+    "quote":"\"I want to spread joy and positivity\""}
+];
+
+const docFrag = new DocumentFragment();
+const body = document.querySelector('body');
+function createInfo(){
+    // adding the card to the DOM
+    
+    for(var i = 0; i < jsonArray.length; i++){
+        if(jsonArray[i].name !== sessionStorage.getItem("name"))
+            continue;
+        var cardDiv = document.createElement("div");
+        cardDiv.classList.add("cardDiv");
+        var cardBorder = document.createElement("div");
+        cardBorder.classList.add("cardborder");
+            var titleGrid = document.createElement('div');
+            titleGrid.classList.add("TitleGrid");
+                var fullName = document.createElement("h1");
+                fullName.innerText = jsonArray[i].name;
+                var ageEm = document.createElement('h2');
+                ageEm.innerText = "Age: " + jsonArray[i].age;
+                titleGrid.appendChild(fullName);
+                titleGrid.appendChild(ageEm);
+            cardBorder.appendChild(titleGrid);
+
+            var imgBox = document.createElement('div');
+                imgBox.classList.add("imgbox");
+                    var image = document.createElement("img");
+                    image.src=jsonArray[i].image;
+                imgBox.appendChild(image);
+            cardBorder.appendChild(imgBox);
+
+            var interestGrid = document.createElement('div');
+            interestGrid.classList.add("InterestGrid");
+                var likesTitle = document.createElement('p1');
+                likesTitle.innerText = "Likes:";
+                var dislikesTitle = document.createElement('p1a');
+                dislikesTitle.innerText = "Dislikes:";
+                interestGrid.appendChild(likesTitle);
+                interestGrid.appendChild(dislikesTitle);
+            cardBorder.appendChild(interestGrid);
+
+            var actualInterestGrid = document.createElement('div');
+            actualInterestGrid.classList.add("InterestGrid");
+                var likesList = document.createElement("ul2");
+                jsonArray[i].likes.forEach((likeItem) =>{
+                    let likeEm = document.createElement('p');
+                    likeEm.innerText = likeItem;
+                    likesList.appendChild(likeEm);
+                });
+                var dislikesList = document.createElement('ula');
+                jsonArray[i].dislikes.forEach((dislikeItem) =>{
+                    let dislikeEm = document.createElement('p');
+                    dislikeEm.innerText = dislikeItem;
+                    dislikesList.appendChild(dislikeEm);
+                });
+                actualInterestGrid.appendChild(likesList);
+                actualInterestGrid.appendChild(dislikesList);
+            cardBorder.appendChild(actualInterestGrid);
+
+            var logo = document.createElement('img');
+            logo.src = "icon.PNG";
+            logo.style.width = "50px";
+            logo.style.height = "50px";
+            logo.style.marginTop = "20px";
+            logo.style.marginLeft = "20px";
+            cardBorder.appendChild(logo);
+
+            var quoteCard = document.createElement('div');
+            quoteCard.classList.add("p3");
+            var quote = document.createElement("p3");
+            quote.innerText=jsonArray[i].quote;
+            quoteCard.appendChild(quote);
+            cardBorder.appendChild(quoteCard);
+        cardBorder.style.display = 'none';
+        cardDiv.appendChild(cardBorder);
+        docFrag.appendChild(cardDiv);
+    }
+    body.insertBefore(docFrag, document.querySelector(".screen"));
+}
+
+createInfo();
+document.querySelector("#info").onclick=function(){clickInfo()};
+document.querySelector(".cardDiv").onclick=function(){unshowInfo()};
 function clickInfo(){
     //show the card
-    
+    var cardDiv = document.querySelector(".cardDiv");
+    cardDiv.style.display = 'flex';
+    var cardborder = document.querySelector(".cardborder");
+    cardborder.style.display = 'block';
+}
+
+function unshowInfo(){
+    //unshow the card
+    var cardDiv = document.querySelector(".cardDiv");
+    cardDiv.style.display = 'none';
+    var cardborder = document.querySelector(".cardborder");
+    cardborder.style.display = 'none';
 }
 
 function clickRun(){

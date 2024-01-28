@@ -2,6 +2,145 @@ body, button, input{
     font-family: "Pixelify Sans";
 }
 
+.cardDiv{
+    background-color: rgb(99, 205, 99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.cardborder {
+    border-radius: 10px;
+    background: rgb(246, 249, 55);
+    padding-top: 5px; 
+    width: 430px;
+    height: 550px;
+    gap: 5px;
+    margin: auto;
+    white-space: nowrap;
+    border: 5px solid black;
+}
+
+.cardborder:hover{
+    transition: all 0.2s ease-in-out;
+}
+
+.TitleGrid {
+    display:grid; 
+    grid-template-columns: 3fr 1fr;
+}
+
+.InterestGrid {
+    display:grid; 
+    grid-template-columns: 1fr 1fr;
+}
+
+.imgbox {
+    width: 407px;
+    height: 200px;
+    background-color: white;
+    border:5px solid black;
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.cardborder img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.cardborder h1 {
+  color: black;
+  text-align: center;
+  margin: 5px;
+  background-color: white;
+  border: 5px solid black;
+  /* box-shadow: 1px 1px white, 3px 3px black; */
+  border-radius: 25px;
+  max-width: 300px;
+}
+
+.cardborder h2 {
+  color: black;
+  padding-left: 5px;
+  padding-top: 4px;
+  text-align: left;
+  margin: 5px;
+  background-color: white;
+  border: 5px solid black;
+  /* box-shadow: 1px 1px white, 3px 3px black; */
+  border-radius: 25px;
+  max-width: 90px;
+}
+
+.cardborder p1 {
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  display: block;
+  height: 200px;
+  border: 4px solid lightgreen;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+.cardborder p1a {
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  display: block;
+  height: 200px;
+  border: 4px solid red;
+  width: 90%;
+  height: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.cardborder ul2 {
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  display: block;
+  border: 4px solid lightgreen;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+.cardborder ula {
+  font-size: 20px;
+  background-color: white;
+  text-align: center;
+  display: block;
+  border: 4px solid red;
+  width: 90%;
+  height: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.cardborder p3 {
+    font-size: 15px;
+    background-color: white;
+    border: 2px solid black;
+    float: right;
+    margin-top: -45px;
+    margin-right: -5px;
+    width: 70%;
+    height: 10%;
+    border-radius: 10px 0px 0px 10px;
+    border-width: 4px;
+}
+
 .runaway{
     position: fixed;
     top: 0;

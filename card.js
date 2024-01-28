@@ -74,7 +74,7 @@ for(var i = 0; i < jsonArray.length; i++){
         cardBorder.appendChild(actualInterestGrid);
 
         var logo = document.createElement('img');
-        logo.src = "icon.png";
+        logo.src = "icon.PNG";
         logo.style.width = "50px";
         logo.style.height = "50px";
         logo.style.marginTop = "20px";
