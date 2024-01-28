@@ -10,7 +10,9 @@
             <div class="otherBar">
                 <h1>Other Name</h1>
                 <div class="hpCont">
-
+                    <p>LV</p>
+                    <label for="otherHpBar">HP</label>
+                    <div class="hpBar" id="otherHpBar"></div>
                 </div>
             </div>
             <div class="otherSpace">
@@ -26,16 +28,38 @@
             <div class="bar">
                 <h1>User Name</h1>
                 <div class="hpCont">
-                    
+                    <p>LV</p>
+                    <label for="userHpBar">HP</label>
+                    <div class="hpBar" id="userHpBar"></div>
                 </div>
             </div>
             <div class="choiceBar">
-
+                <div class="choiceBox">
+                    <h1 id="choice1"></h1>
+                    <h1 id="choice2"></h1>
+                    <h1 id="choice3"></h1>
+                    <h1 id="choice4"></h1>
+                </div>
             </div>
             <div class="actionBar">
-
+                <div class="actionBox">
+                    <div class="actionGrid">
+                        <button id="action" onclick="clickAction()">
+                            <h1>ACTION</h1>
+                        </button>
+                        <button id="items" onclick="clickItems()">
+                            <h1>ITEMS</h1>
+                        </button>
+                        <button id="info" onclick="clickInfo()">
+                            <h1>INFO</h1>
+                        </button>
+                        <button id="runaway" onclick="clickRun()">
+                            <h1>RUN AWAY</h1>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        
+        <script src="fight.js"></script>
     </body>
 </html>

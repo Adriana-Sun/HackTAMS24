@@ -6,31 +6,42 @@
     background-color:white;
     border-right-color:white;
     border-top-color:white;
+    
 }
 
 .bigBox{
     padding: 0px 0px 0px 75px;
     width: 750px;
     height:150px;
+    
 }
 
 .otherBox{
     width:750px;
     height:150px;
     float:right;
+    
 }
 
 .sprite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width:730.5px;
     height:350px;
-    margin:auto;
-
 }
 
 .actionBox{
-    width:600px;
-    height:300px;
+    width:700px;
+    height:250px;
     border:5px solid black;
+}
+
+.choiceBox{
+    width:700px;
+    height:250px;
+    border:5px solid black;
+    padding-left:100px;
 }
 
 .moveBox{
@@ -67,6 +78,7 @@ img {
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 4;
+    
 }
 
 .otherSpace{
@@ -79,8 +91,8 @@ img {
 .space{
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 4;
-    grid-row-end: 9;
+    grid-row-start: 5;
+    grid-row-end: 10;
 }
 
 .bar{
@@ -95,6 +107,7 @@ img {
     grid-column-end: 2;
     grid-row-start: 9;
     grid-row-end: 13;
+    background-color:white;
 }
 
 .actionBar{
@@ -103,3 +116,17 @@ img {
     grid-row-start: 9;
     grid-row-end: 13;
 }
+
+.hpBar{
+    width:550px;
+    height:10px;
+    background-color: green;
+}
+
+.actionGrid{
+    display:grid;
+    grid-template-columns:350px 350px;
+    grid-template-rows: 125px 125px;
+    text-align:center;
+    vertical-align:center;
+}   
