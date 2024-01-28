@@ -1,3 +1,10 @@
+const otherSpace = document.querySelector(".otherSpace");
+const otherSprite = otherSpace.querySelector("img");
+const userSpace = document.querySelector(".space");
+const userSprite = userSpace.querySelector("img");
+
+// otherSprite.src = URL.createObjectURL(sessionStorage.getItem("image"));
+
 var responses = ["It was super effective!", "It was not very effective...", "It was neutral."];
 
 var damage = [200, 50, 100];
