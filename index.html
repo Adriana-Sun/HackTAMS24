@@ -62,7 +62,7 @@
                 height: 100vh;
                 z-index: 0;
                 display: grid;
-                grid-template-columns: 1fr 30px 2fr 30px 1fr;
+                grid-template-columns: 1fr 25px 2fr 25px 1fr;
                 background: fixed;
                 background-color: rgb(116, 211, 116);
                 background-image: url("tileGrass.png");
@@ -72,12 +72,14 @@
             .tile{
                 background:fixed;
                 background-image: url("tilePath.png");
+                background-position: 50%;
                 background-size: 50px;
             }
 
             .tileLeft{
                 background:fixed;
                 background-image: url("tileGrassPathLeft.png");
+                background-position: 50%;
                 background-size: 50px;
             }
 
@@ -85,6 +87,13 @@
                 background:fixed;
                 background-image: url("tileGrassPathRight.png");
                 background-size: 50px;
+                background-position: 50%;
+            }
+
+            div img{
+                width: 100%;
+                height: auto;
+                max-width: 100px;
             }
         </style>
     </head>
@@ -120,7 +129,9 @@
         </form>
 
         <div class="background">
-            <div></div>
+            <div>
+                <img src="houseRed.png" style="margin-top: 150px;">
+            </div>
             <div class="tileLeft"></div>
             <div class="tile"></div>
             <div class="tileRight"></div>
