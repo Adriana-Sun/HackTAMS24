@@ -17,12 +17,16 @@
         <style>
             body{
                 text-align: center;
-                font: 18px "Pixelify Sans";
+                font: 24px "Pixelify Sans";
             }
 
             h1{
                 font-size: 60px;
-                text-shadow: 3px 3px gray;
+                text-shadow: 3px 3px rgb(255, 229, 98);
+            }
+
+            label{
+                text-shadow: 1px 1px black, 2px 2px rgb(78, 255, 72);
             }
 
             input, textarea{
@@ -38,11 +42,44 @@
                 outline: none;
                 border-color: gray;
             }
+
+            .background{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                z-index: 0;
+                display: grid;
+                grid-template-columns: 1fr 30px 2fr 30px 1fr;
+                background: fixed;
+                background-color: rgb(116, 211, 116);
+                background-image: url("tileGrass.png");
+                background-size: 5
+            }
+
+            .tile{
+                background:fixed;
+                background-image: url("tilePath.png");
+                background-size: 50px;
+            }
+
+            .tileLeft{
+                background:fixed;
+                background-image: url("tileGrassPathLeft.png");
+                background-size: 50px;
+            }
+
+            .tileRight{
+                background:fixed;
+                background-image: url("tileGrassPathRight.png");
+                background-size: 50px;
+            }
         </style>
     </head>
     <body>
-        <h1>POKÉMON TINDER</h1>
-        <form>
+        <h1 style="position: relative; z-index: 1;">POKÉMON TINDER</h1>
+        <form style="position: relative; z-index: 1;">
             <label for="name">Input First and Last Name</label> <br>
             <input type="text" id="name" placeholder="Full Name">
 
@@ -52,5 +89,13 @@
             <br> <label for="description">Description</label> <br>
             <textarea id="description" placeholder="Ex: A 32 year-old man looking for a fun, short relationship!"></textarea>
         </form>
+
+        <div class="background">
+            <div></div>
+            <div class="tileLeft"></div>
+            <div class="tile"></div>
+            <div class="tileRight"></div>
+            <div></div>
+        </div>
     </body>
 </html>
